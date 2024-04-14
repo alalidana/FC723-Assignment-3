@@ -15,7 +15,26 @@ class EuclideanAlgorithm:
             a, b = b, remainder
         #when b = 0 a contains the gcd
         return a
-#example of using the class
+    #define get_numbers_gcd function that asks for the inputs of a
+    # and b and calls the function that calculates its gcd
+    def get_numbers_gcd(self):
+        while True:
+            try:
+                a = int(input("Enter the first positive integer: "))
+                b = int(input("Enter the second positive integer: "))
+                #check are both numbers positive
+                if a > 0 and b > 0:
+                    #call calculate_gcd dunction the calculate the gcd of a and b
+                    return self.calculate_gcd(a, b)
+                else:
+                    #tell user their input is incorrect
+                    print("Both numbers have to be positive. Please try again. ")
+            except ValueError:
+                # tell user their input is incorrect
+                print("Invalid input; please enter positive integers only.")
+#create an instance of the class to get gcd
 gcd_calculator = EuclideanAlgorithm()
-result = gcd_calculator.calculate_gcd(48, 18)
-print(f"The GCD of 48 and 18 is {result}")
+#call get_number_gcd
+result = gcd_calculator.get_numbers_gcd()
+#print the result of the gcd calculation
+print(f"The GCD is {result}.")
